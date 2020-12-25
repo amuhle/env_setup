@@ -1,0 +1,77 @@
+# NOTES #
+
+# Environment set up
+
+## Operating System:
+
+  - Ubuntu 20.10
+
+## Create ssh keys
+
+  - ssh-keygen -t rsa -C "alvaro.muhlethaler@gmail"
+  - Add ssh-key to github
+
+## General config
+
+  ### dotfiles
+    - git clone git@github.com:amuhle/dotfiles.git
+
+## Tools:
+
+  ### curl
+	  - sudo apt install curl
+  ### git
+	  - sudo apt install git
+  ### zsh
+	  - sudo apt install zsh
+    - create .zshrc from dotfiles (ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc)
+  ### oh-my-zsh
+	  - $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  ### neovim
+	  - sudo apt install neovim
+  ### fzf
+	  - sudo apt install fzf
+  ### virtualbox [optional]
+  	- First add sources to /etc/apt/sources.list
+  	- sudo apt install virtualbox
+    - given that secure boot was enabled, I had to use create a MOX at boot to enable installation
+  ### rvm
+	  - curl -sSL https://get.rvm.io | bash
+  ### ruby
+  	- rvm install ruby-2.7.1
+  	- rvm install ruby-2.6.3
+  ### vim
+    - pre-requirements:
+      - node (apt-get install nodejs)
+      - fzf (apt-get install fzf)
+      - the_silver_searcher (apt-get install silversearcher-ag)
+    - create links:
+      - ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
+      - ln -sf ~/dotfiles/vim/vimrc ~/.config/nvim/init.vim
+    - install vim-plug
+    - run :PlugInstall on vim
+    - fonts:
+      - sudo apt install powerline fonts-powerline
+  ### tmux
+    - sudo apt install tmux
+    - ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+    - ln -sf ~/dotfiles/tmux/tmux.conf.local ~/.tmux.conf.local
+
+  ### tmuxinator
+    - gem install tmuxinator
+
+  ### lotion (a linux client for Notion)
+    - pre-requirements:
+      - sudo apt install p7zip-full
+    - curl https://raw.githubusercontent.com/puneetsl/lotion/master/setup.sh > lotion_setup.sh
+    - chmod +x lotion_setup.sh
+    - ./lotion_setup.sh
+  ### htop
+    - sudo apt install htop
+  ### Rust / cargo
+    -
+  ### Pip
+    - curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    - chmod +x ./get-pip.py
+    - python ./get-pip.py
+
