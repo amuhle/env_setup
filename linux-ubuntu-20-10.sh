@@ -1,25 +1,18 @@
-# NOTES #
+#!/bin/sh
+
 # Environment set up
 ## Operating System: Ubuntu 20.10
 
-## Create ssh keys
+## Before running it: Create ssh keys
   #- ssh-keygen -t rsa -C "alvaro.muhlethaler@gmail"
   #- Add ssh-key to github
 
 ###### Run as sudo ######
 
 ### Common tools
-apt install curl
-apt install git
-apt install zsh
-apt install neovim
-apt install fzf
-apt install nodejs
-apt install silversearcher-ag
-apt install powerline fonts-powerline
-apt install tmux
+sudo apt install curl git zsh neovim fzf nodejs silversearcher-ag powerline fonts-powerline tmux -y
 
-git clone git@github.com:amuhle/dotfiles.git ~/dotfiles
+git clone https://github.com/amuhle/dotfiles.git ~/dotfiles
 
 ### zsh setup
 ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
@@ -37,22 +30,23 @@ ln -sf ~/dotfiles/vim/vimrc ~/.config/nvim/init.vim
 ### tmux
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/tmux/tmux.conf.local ~/.tmux.conf.local
+mkdir ~/.bin
+ln -sf ~/dotfiles/tmux/tmuxinator.zsh ~/.bin/tmuxinator.zsh
 
 ### tmuxinator
 gem install tmuxinator
 
 ### lotion (a linux client for Notion)
-apt install p7zip-full
+sudo apt install p7zip-full
 curl https://raw.githubusercontent.com/puneetsl/lotion/master/setup.sh > lotion_setup.sh
 chmod +x lotion_setup.sh
 ./lotion_setup.sh
 
 ### htop
-apt install htop
+sudo apt install htop
 
 ### Rust / cargo
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
 
 ### Pip
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
